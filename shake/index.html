@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #app {
+      display: inline-grid;
+      column-gap: 15px;
+      row-gap: 15px;
+      grid-template-columns: repeat(6, minmax(50px, 1fr));
+      align-self: center;
+    }
+    #app .image {
+      display: flex;
+      width: 50px;
+      height: 50px;
+    }
+    #app .image img {
+      width: 100%;
+      height: 100%;
+    }
+    #app .shake {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+  </style>
+  <script src="../helper/vue@2.js"></script>
+  <script src="../helper/util.js"></script>
+  <script src="./list-data.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div class="image" v-for="item in list" :key="item.id">
+      <img ref="imgs" :src="item.coverUrl" alt="" />
+    </div>
+    <div class="shake" @click="shake" key="shake">Shake</div>
+  </div>
+  <script src="./index.js"></script>
+</body>
+</html>

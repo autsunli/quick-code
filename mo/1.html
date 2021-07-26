@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MutationObserver</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li>kongzhi111</li>
+    </ul>
+  </div>
+  <script type="text/javascript">
+    var MutationObserver = window.MutationObserver || window.WebkitMutationObserver || window.MozMutationObserver;
+    var list = document.querySelector('ul');
+    var Observer = new MutationObserver(function(mutations, instance) {
+      console.log(mutations);  // 打印mutations 如下图对应的
+      console.log(instance);   // 打印instance 如下图对于的
+      mutations.forEach(function(mutation){
+        console.log(mutation); // 打印mutation
+      });
+    });
+    Observer.observe(list, {
+      childList: true, // 子节点的变动
+      subtree: true // 所有后代节点的变动
+    });
+    var li = document.createElement('li');
+    var textNode = document.createTextNode('kongzhi');
+    li.appendChild(textNode);
+    list.appendChild(li);
+  </script>
+</body>
+</html>

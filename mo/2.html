@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MutationObserver</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li>kongzhi111</li>
+      </ul>
+    </div>
+    <script type="text/javascript">
+      var MutationObserver = window.MutationObserver || window.WebkitMutationObserver || window.MozMutationObserver;
+      var list = document.querySelector('ul');
+      var Observer = new MutationObserver(function(mutations, instance) {
+        mutations.forEach(function(mutation){
+          console.log(mutation);
+        });
+      });
+      Observer.observe(list, {
+        childList: true, // 子节点的变动
+        characterData: true, // 节点内容或节点文本变动
+        subtree: true // 所有后代节点的变动
+      });
+      // 改变节点中的子节点中的数据
+      list.childNodes[0].data = "kongzhi222";
+    </script>
+  </body>
+</html>

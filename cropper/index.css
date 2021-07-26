@@ -1,0 +1,192 @@
+@-webkit-keyframes outside {
+  0% {
+    outline-color: transparent;
+  }
+  50% {
+    outline-color: rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    outline-color: transparent;
+  }
+}
+
+@keyframes outside {
+  0% {
+    outline-color: transparent;
+  }
+  50% {
+    outline-color: rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    outline-color: transparent;
+  }
+}
+
+@-webkit-keyframes inside {
+  0% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes inside {
+  0% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.parent {
+  width: 300px;
+  height: 200px;
+  position: relative;
+  border: 1px solid red;
+}
+
+.parent .rect-layer {
+  position: absolute;
+  border: 1px solid blue;
+  -webkit-animation-iteration-count: 2;
+          animation-iteration-count: 2;
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  cursor: move;
+}
+
+.parent .rect-layer.outside {
+  outline-style: solid;
+  outline-width: 1000px;
+}
+
+.parent .rect-layer .rect-line {
+  position: absolute;
+  padding: 2px;
+  background: transparent;
+}
+
+.parent .rect-layer .rect-line.left {
+  width: 1px;
+  height: 100%;
+  left: -1px;
+  top: -1px;
+  cursor: e-resize;
+  border-left: 1px solid blue;
+}
+
+.parent .rect-layer .rect-line.right {
+  width: 1px;
+  height: 100%;
+  right: -1px;
+  cursor: e-resize;
+  border-right: 1px solid blue;
+}
+
+.parent .rect-layer .rect-line.top {
+  width: 100%;
+  height: 1px;
+  left: -1px;
+  top: -1px;
+  cursor: s-resize;
+  border-top: 1px solid blue;
+}
+
+.parent .rect-layer .rect-line.bottom {
+  width: 100%;
+  height: 1px;
+  bottom: -1px;
+  cursor: s-resize;
+  border-bottom: 1px solid blue;
+}
+
+.parent .rect-layer .rect-dot {
+  position: absolute;
+  border: 4px solid blue;
+  border-radius: 50%;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.parent .rect-layer .rect-dot.left-top {
+  left: -1px;
+  top: -1px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  cursor: nwse-resize;
+}
+
+.parent .rect-layer .rect-dot.right-top {
+  right: -1px;
+  top: -1px;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+  cursor: nesw-resize;
+}
+
+.parent .rect-layer .rect-dot.left-bottom {
+  left: -1px;
+  bottom: -1px;
+  -webkit-transform: translate(-50%, 50%);
+          transform: translate(-50%, 50%);
+  cursor: nesw-resize;
+}
+
+.parent .rect-layer .rect-dot.right-bottom {
+  right: -1px;
+  bottom: -1px;
+  -webkit-transform: translate(50%, 50%);
+          transform: translate(50%, 50%);
+  cursor: nwse-resize;
+}
+
+.parent .rect-layer.rect-left.rect-top .left-top {
+  border-width: 16px;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.parent .rect-layer.rect-left.rect-bottom .left-bottom {
+  border-width: 16px;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.parent .rect-layer.rect-right.rect-top .right-top {
+  border-width: 16px;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.parent .rect-layer.rect-right.rect-bottom .right-bottom {
+  border-width: 16px;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.parent .rect-layer.rect-left .rect-line.left {
+  border-width: 3px;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.parent .rect-layer.rect-right .rect-line.right {
+  border-width: 3px;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.parent .rect-layer.rect-top .rect-line.top {
+  border-width: 3px;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.parent .rect-layer.rect-bottom .rect-line.bottom {
+  border-width: 3px;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+/*# sourceMappingURL=index.css.map */

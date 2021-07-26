@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .top {
+      background: #1c1e26;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .top .audio-meter {
+      margin-top: -10px;
+    }
+    .bottom span {
+      cursor: pointer;
+    }
+  </style>
+  <script src="../helper/vue@2.js"></script>
+  <script src="../helper/util.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div class="top">
+      <canvas class="audio-meter"
+        :width="meterWidth"
+        v-draw-meter="{ amp: leftVal, peak: peakLeftVal, clipSize: clipSize, showPeaks: showPeaks }"
+      ></canvas>
+      <canvas class="audio-meter"
+        :width="meterWidth"
+        v-draw-meter="{ amp: rightVal, peak: peakRightVal, clipSize: clipSize, showPeaks: showPeaks }"
+      ></canvas>
+      <canvas id="audio-ruler"></canvas>
+    </div>
+  </div>
+  <script src="./index.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+@keyframes outside{
+  0% { outline-color: transparent; }
+  50% { outline-color: rgba(255,255,255, 0.2); }
+  100% { outline-color: transparent; }
+}
+@keyframes inside{
+  0% { background-color: transparent; }
+  50% { background-color: rgba(255,255,255, 0.2); }
+  100% { background-color: transparent; }
+}
+$rect-color: blue;
+.parent {
+  width: 300px;
+  height: 200px;
+  position: relative;
+  border: 1px solid red;
+  .rect-layer {
+    position: absolute;
+    border: 1px solid $rect-color;
+    animation-iteration-count: 2;
+    animation-duration: .2s;
+    box-sizing: border-box;
+    cursor: move;
+    &.outside {
+      outline-style: solid;
+      outline-width: 1000px;
+      // animation-name: outside;
+    }
+    &.inside {
+      // animation-name: inside;
+    }
+    .rect-line {
+      position: absolute;
+      padding: 2px;
+      background: transparent;
+      &.left {
+        width: 1px;
+        height: 100%;
+        left: -1px;
+        top: -1px;
+        cursor: e-resize;
+        border-left: 1px solid $rect-color;
+      }
+      &.right {
+        width: 1px;
+        height: 100%;
+        right: -1px;
+        cursor: e-resize;
+        border-right: 1px solid $rect-color;
+      }
+      &.top {
+        width: 100%;
+        height: 1px;
+        left: -1px;
+        top: -1px;
+        cursor: s-resize;
+        border-top: 1px solid $rect-color;
+      }
+      &.bottom {
+        width: 100%;
+        height: 1px;
+        bottom: -1px;
+        cursor: s-resize;
+        border-bottom: 1px solid $rect-color;
+      }
+    }
+    .rect-dot {
+      position: absolute;
+      border: 4px solid $rect-color;
+      border-radius: 50%;
+      transition: all .2s;
+      &.left-top {
+        left: -1px;
+        top: -1px;
+        transform: translate(-50%, -50%);
+        cursor: nwse-resize;
+      }
+      &.right-top {
+        right: -1px;
+        top: -1px;
+        transform: translate(50%, -50%);
+        cursor: nesw-resize;
+      }
+      &.left-bottom {
+        left: -1px;
+        bottom: -1px;
+        transform: translate(-50%, 50%);
+        cursor: nesw-resize;
+      }
+      &.right-bottom {
+        right: -1px;
+        bottom: -1px;
+        transform: translate(50%, 50%);
+        cursor: nwse-resize;
+      }
+    }
+    // 靠近边缘的点 放大
+    $pos: (
+      'left' 'top',
+      'left' 'bottom',
+      'right' 'top',
+      'right' 'bottom'
+    );
+    @each $p1, $p2 in $pos {
+      &.rect-#{$p1}.rect-#{$p2} .#{$p1}-#{$p2} {
+        border-width: 16px;
+        border-color: rgba(255,255,255, 0.7);
+      }
+    }
+    $pos2: 'left', 'right', 'top', 'bottom';
+    @each $p1 in $pos2 {
+      &.rect-#{$p1} .rect-line.#{$p1} {
+        border-width: 3px;
+        border-color: rgba(255,255,255, 0.7);
+      }
+    }
+  }
+}
