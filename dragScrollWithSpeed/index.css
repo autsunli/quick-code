@@ -1,0 +1,49 @@
+html, body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+#app {
+  display: flex;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.outter {
+  width: 100%;
+  height: 200px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.outter .inner {
+  position: relative;
+  width: 5000px;
+  height: 100%;
+  background-color: lightcoral;
+}
+.outter .inner .block {
+  position: absolute;
+}
+#dragContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+#dragContainer #draggingDiv {
+  position: absolute;
+}
+
+.outter::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.outter::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: rgba(217,217,217,1);
+  background:rgba(217,217,217,1);
+}
+.outter::-webkit-scrollbar-track {
+  box-shadow: rgba(255, 255, 255, 1);
+  border-radius: 8px;
+  background:rgba(255, 255, 255, 1);
+}

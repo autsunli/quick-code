@@ -14,13 +14,10 @@ new Vue({
       // 获取旧图片的位置
       const prevImgs = this.$refs.imgs.slice()
       const prevSrcRectMap = createSrcRectMap(prevImgs)
-      // 更新数据
+      // 数据变了，但是还没有更新dom节点
       this.list = shuffle(this.list)
-      // 使用nextTick后，此时是更新后的DOM
-      // 当页面中的数据发生改变了，就会把该任务放到一个异步队列中，
-      // 只有在当前任务空闲时才会进行DOM渲染，
-      // 当DOM渲染完成以后，该函数会自动执行
       this.$nextTick(() => {
+        // 数据改变，dom节点更新后，才会触发
         const currentSrcRectMap = createSrcRectMap(prevImgs)
         Object.keys(prevSrcRectMap).forEach((src) => {
           const currentRect = currentSrcRectMap[src]

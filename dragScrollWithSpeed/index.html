@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./index.css">
+  <script src="../helper/vue@2.js"></script>
+</head>
+<body>
+  <div id="app" @mouseup="handleMouseUp">
+    <div class="outter" ref="scrollEl">
+      <div class="inner" ref="realEl">
+        <div class="block" ref="dragBox"
+          v-show="!isDragging"
+          @mousedown.stop="handleMouseDown"
+          style="background-color: lightblue; width: 200px; height: 200px"
+        ></div>
+      </div>
+    </div>
+    <div id="dragContainer" v-show="isDragging"></div>
+  </div>
+  <script src="./index.js"></script>
+</body>
+</html>
