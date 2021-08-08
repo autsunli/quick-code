@@ -1,3 +1,4 @@
+// https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js
 /*!
  * Vue.js v2.6.14
  * (c) 2014-2021 Evan You
