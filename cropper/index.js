@@ -31,8 +31,8 @@ new Vue({
       const parent = document.querySelector('.parent')
       const { left, top, width, height } = parent.getBoundingClientRect()
       const { width: rectWidth, height: rectHeight } = this.rectStyle
-      this.rectStyle.left = range(clientX - left - this.startDiff.x, [0, width - parseInt(rectWidth) - 1]) + 'px'
-      this.rectStyle.top = range(clientY - top - this.startDiff.y, [0, height - parseInt(rectHeight) - 1]) + 'px'
+      this.rectStyle.left = range(clientX - left - this.startDiff.x, [0, width - parseInt(rectWidth)]) + 'px'
+      this.rectStyle.top = range(clientY - top - this.startDiff.y, [0, height - parseInt(rectHeight)]) + 'px'
     },
     resize (e, type) {
       this.resizeType = type
